@@ -1,9 +1,11 @@
 gatling:
   baseUrl: http://localhost:8080
-  intensity: 400
-  rampDuration: 10
-  stageDuration: 10
-  stages: 5
+  intensity: ${intensity:-400} # maximal number of users on the last stage
+  rampDuration: ${rampDuration:-10} # time (seconds) for ramp-up stage
+  stageDuration: ${stageDuration:-10} # time (seconds) for load stage
+  stages: ${stages:-5} # number of load stages
 
 nfr:
-  maxResponseTime: 1000
+  maxResponseTime: ${maxResponseTime:-1000} # simulation is considered failed if max response time is greater
+  perc95ResponseTime: ${perc95ResponseTime:-100} # simulation is considered failed if p95 response time is greater
+  failedRequests: ${failedRequests:-1} # simulation is considered failed if failed requests percent is greater

@@ -1,12 +1,10 @@
 package todo.scenarios.steps
 
 import io.gatling.javaapi.core.CoreDsl.StringBody
-import io.gatling.javaapi.core.CoreDsl.responseTimeInMillis
 import io.gatling.javaapi.http.HttpDsl.http
 import io.gatling.javaapi.http.HttpDsl.status
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import todo.config.gatlingConfig
 import todo.scenarios.steps.dto.TodoItem
 
 object Steps {
@@ -22,10 +20,7 @@ object Steps {
                     ).run { Json.encodeToString(this) }
             })
 
-            .check(
-                status().shouldBe(201),
-                responseTimeInMillis().lte(gatlingConfig.nfr.maxResponseTime)
-            )
+            .check(status().shouldBe(201))
 }
 
 private const val TODOS_ENDPOINT = "/todos"

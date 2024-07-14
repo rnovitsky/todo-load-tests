@@ -1,5 +1,6 @@
 package todo.simulations
 
+import io.gatling.javaapi.core.CoreDsl.global
 import io.gatling.javaapi.core.CoreDsl.incrementUsersPerSec
 import io.gatling.javaapi.core.Simulation
 import todo.config.gatlingConfig
@@ -18,6 +19,16 @@ class MaxPerformance : Simulation() {
                         .startingFrom(0.0)
                 )
             }
-        ).protocols(httpProtocol)
+        )
+            .protocols(httpProtocol)
+            .also {
+                with(gatlingConfig.nfr) {
+                    it.assertions(
+                        global().responseTime().max().lte(maxResponseTime),
+                        global().responseTime().percentile(95.0).lte(perc95ResponseTime),
+                        global().failedRequests().percent().lte(failedRequests)
+                    )
+                }
+            }
     }
 }
