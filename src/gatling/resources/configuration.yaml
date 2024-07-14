@@ -8,7 +8,7 @@ gatling:
   stability:
     intensity: ${intensity:-450} # maximal number of users during load stage
     rampDuration: ${rampDuration:-60} # time (seconds) for ramp-up stage
-    stageDuration: ${stageDuration:-3500} # time (seconds) for load stage
+    stageDuration: ${stageDuration:-1800} # time (seconds) for load stage
 
 nfr:
   maxResponseTime: ${maxResponseTime:-500} # simulation is considered failed if max response time is greater
