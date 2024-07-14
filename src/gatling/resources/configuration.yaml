@@ -6,9 +6,9 @@ gatling:
     stageDuration: ${stageDuration:-60} # time (seconds) for load stage
     stages: ${stages:-5} # number of load stages
   stability:
-    intensity: ${intensity:-400} # maximal number of users during load stage
+    intensity: ${intensity:-450} # maximal number of users during load stage
     rampDuration: ${rampDuration:-60} # time (seconds) for ramp-up stage
-    stageDuration: ${stageDuration:-600} # time (seconds) for load stage
+    stageDuration: ${stageDuration:-3500} # time (seconds) for load stage
 
 nfr:
   maxResponseTime: ${maxResponseTime:-500} # simulation is considered failed if max response time is greater
