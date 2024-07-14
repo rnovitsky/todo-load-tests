@@ -1,0 +1,9 @@
+gatling:
+  baseUrl: http://localhost:8080
+  intensity: 400
+  rampDuration: 10
+  stageDuration: 10
+  stages: 5
+
+nfr:
+  maxResponseTime: 100

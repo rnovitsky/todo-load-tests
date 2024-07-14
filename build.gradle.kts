@@ -11,6 +11,11 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    gatlingImplementation("com.sksamuel.hoplite:hoplite-core:2.7.5")
+    gatlingImplementation("com.sksamuel.hoplite:hoplite-yaml:2.7.5")
+}
+
 kotlin {
     jvmToolchain(17)
 }

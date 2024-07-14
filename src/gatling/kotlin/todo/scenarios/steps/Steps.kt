@@ -4,6 +4,7 @@ import io.gatling.javaapi.core.CoreDsl.StringBody
 import io.gatling.javaapi.core.CoreDsl.responseTimeInMillis
 import io.gatling.javaapi.http.HttpDsl.http
 import io.gatling.javaapi.http.HttpDsl.status
+import todo.config.gatlingConfig
 import todo.scenarios.steps.Steps.Payloads.todoItem
 
 object Steps {
@@ -14,7 +15,7 @@ object Steps {
 
             .check(
                 status().shouldBe(201),
-                responseTimeInMillis().lte(100)
+                responseTimeInMillis().lte(gatlingConfig.nfr.maxResponseTime)
             )
 
     internal object Payloads {
