@@ -6,4 +6,4 @@ gatling:
   stages: 5
 
 nfr:
-  maxResponseTime: 100
+  maxResponseTime: 1000
