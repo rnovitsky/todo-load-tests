@@ -14,7 +14,7 @@ object Steps {
 
             .check(
                 status().shouldBe(201),
-                responseTimeInMillis().lte(500)
+                responseTimeInMillis().lte(100)
             )
 
     internal object Payloads {
